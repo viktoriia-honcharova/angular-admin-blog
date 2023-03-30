@@ -1,0 +1,13 @@
+.header {
+  background-color: rgb(70, 70, 70);
+  height: 60px;
+  align-items: center;
+  padding-left: 18px;
+}
+
+.header-link {
+  font-size: 25px;
+  text-decoration: none;
+  color: gainsboro;
+  margin-right: 13px;
+}
