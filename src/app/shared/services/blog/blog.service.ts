@@ -18,4 +18,16 @@ export class BlogService {
   getAll(): Observable<IBlogResponse[]> {
     return this.http.get<IBlogResponse[]>(this.api.blogs);
   }
+
+  create(blog: IBlogRequest): Observable<IBlogResponse> {
+    return this.http.post<IBlogResponse>(this.api.blogs, blog);
+  }
+
+  update(blog: IBlogRequest, id: number): Observable<IBlogResponse> {
+    return this.http.patch<IBlogResponse>(`${this.api.blogs}/${id}`, blog);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.api.blogs}/${id}`);
+  }
 }

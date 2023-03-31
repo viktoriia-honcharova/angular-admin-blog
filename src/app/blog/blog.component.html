@@ -1,5 +1,5 @@
-<div class="container mt-5" *ngFor="let blog of blogs">
-  <div class="card" style="width: 18rem">
+<div class="container mt-4 d-flex">
+  <div class="card blog-card" style="width: 18rem" *ngFor="let blog of blogs">
     <img [src]="blog.imagePath" class="card-img-top" alt="..." />
     <div class="card-body">
       <p>

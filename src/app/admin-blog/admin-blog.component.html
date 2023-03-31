@@ -32,6 +32,7 @@
           class="form-control"
           id="exampleFormControlInput1"
           placeholder="Title here..."
+          [(ngModel)]="blogTitle"
         />
       </div>
       <div class="mb-3">
@@ -40,6 +41,7 @@
           id="exampleFormControlTextarea1"
           rows="3"
           placeholder="Text here..."
+          [(ngModel)]="blogText"
         ></textarea>
       </div>
       <div class="mb-3">
@@ -48,9 +50,60 @@
           class="form-control"
           id="exampleFormControlInput2"
           placeholder="Author here..."
+          [(ngModel)]="blogAuthor"
         />
       </div>
-      <button type="button" class="btn btn-dark" id="add-button">Add</button>
+      <button
+        type="button"
+        class="btn btn-dark"
+        id="add-button"
+        (click)="addBlog()"
+        *ngIf="!editStatus"
+      >
+        Add
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="saveBlog()"
+        *ngIf="editStatus"
+      >
+        Save edit
+      </button>
     </div>
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Text</th>
+          <th scope="col">Author</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let blog of adminBlogs">
+        <tr>
+          <th scope="row">{{ blog.id }}</th>
+          <td>{{ blog.title }}</td>
+          <td>{{ blog.text }}</td>
+          <td>{{ blog.author }}</td>
+          <td>
+            <button type="button" class="btn btn-dark" (click)="editBlog(blog)">
+              Edit
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-dark"
+              (click)="deleteBlog(blog)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
