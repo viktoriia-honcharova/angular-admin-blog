@@ -1,1 +1,14 @@
-<p>blog works!</p>
+<div class="container mt-5" *ngFor="let blog of blogs">
+  <div class="card" style="width: 18rem">
+    <img [src]="blog.imagePath" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <p>
+        <a href="#">{{ blog.author | uppercase }}</a>
+      </p>
+      <h5 class="card-title">{{ blog.title }}</h5>
+      <p class="card-text">
+        {{ blog.text }}
+      </p>
+    </div>
+  </div>
+</div>
